@@ -18,9 +18,10 @@ namespace AgentsAndPasswords
             CIAAgent FelixLeiter = new CIAAgent();
 
             // и Джеймс Бонд получает от Феликса Лейтера секретное приветствие и сохраняет в строку в голове... :) 
-            string usAgentTold = FelixLeiter.SaySecretGreeting();
+            string usAgentTold = "grovel";
             // и после этого проверяет его...
-            JamesBond.CheckSecretGreeting(usAgentTold);
+            JamesBond.CheckSecretAnswer(FelixLeiter.CheckSecretGreeting(usAgentTold));
+
             // после этого он говорит, верит ли он этому агенту
             JamesBond.DoITrustYou();
 
@@ -37,6 +38,15 @@ namespace AgentsAndPasswords
             // HACK: А слабо говорить пароль, проверять пароль и проверять отзыв одной строкой? :)
 
             // HACK: Представь себе что ты агент КГБ :) Можешь вывести на экран пароли обоих агентов?
+
+            JamesBond.SecretPassword = "lopata";
+            Console.WriteLine(JamesBond.SecretPassword);
+            Console.WriteLine(FelixLeiter.SecretAnswer);
+
+            JamesBond.TrustOtherAgent = true;
+            JamesBond.DoITrustYou();
+            
+
 
             // HACK: Представь себе что ты агент КГБ :) А можно их заставить тебе верить без паролей? :)
 

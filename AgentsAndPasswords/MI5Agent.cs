@@ -10,9 +10,9 @@ namespace AgentsAndPasswords
     {
 
 
-        public string SecretPassword = "LONDON";
-        public string SecretAnswer = "TEXAS";
-        public bool TrustOtherAgent = false;
+        private string SecretPassword = "LONDON";
+        private string SecretAnswer = "TEXAS";
+        private bool TrustOtherAgent = false;
 
         public string SaySecretGreeting()
         /// Назначение: вовзращает секретное приветствие и пишет его на консоли
@@ -55,12 +55,23 @@ namespace AgentsAndPasswords
         {
             // TODO: CheckSecretAnswer - добавь свой код здесь :)
             // если то что сказал другой агент НЕ РАВНО секретному ответу...
+            if (SecretAnswer != agentSays)
 
             // то тогда ВеритьАгенту = ЛОЖЬ
+            {
+                TrustOtherAgent = false;
+            }
+
+            if (SecretAnswer == agentSays)
+
+            // то тогда ВеритьАгенту = TRUE
+            {
+                TrustOtherAgent = true;
+            }
+
 
             // Обрати внимание - приходится добавлять метод в двух классах; раздражает, правда?..
         }
-
         public bool DoITrustYou()
         /// Назначение: сообщает, верит ли он второму агенту
         /// На входе: ничего, использует внутренние переменные класса
